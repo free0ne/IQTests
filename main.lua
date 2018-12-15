@@ -1,7 +1,6 @@
------------------------------------------------------------------------------------------
---
--- main.lua
---
------------------------------------------------------------------------------------------
+local composer = require( "composer" )
+-- Hide status bar
+display.setStatusBar( display.HiddenStatusBar )
 
--- Your code here
+-- Go to the menu screen
+composer.gotoScene( "menu" )
