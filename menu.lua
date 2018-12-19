@@ -16,6 +16,11 @@ local scene = composer.newScene()
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
 
+local function goToTest(event)
+	print(event.target.test)
+	composer.gotoScene( "stage" )
+end
+
 -- create()
 function scene:create( event )
 
@@ -49,6 +54,8 @@ function scene:create( event )
   testGroup1.y = 200
   local testRect1 = display.newRect( testGroup1, 0, 0, 450, 120 )
   testRect1:setFillColor(unpack(primaryColor))
+	testRect1.test = "ais"
+	testRect1:addEventListener( "tap", goToTest )
   local testLabel1 = display.newText( testGroup1, "Тест Айзенка", -115, -35, font, 30 )
   testLabel1:setFillColor( unpack(fillColor) )
 
@@ -69,6 +76,8 @@ function scene:create( event )
   scores1:scale(0.5,0.5)
   local scoresText1 = display.newText( testGroup1, "98", -5, 40, font, 28 )
   scoresText1:setFillColor( unpack(fillColor) )
+
+	sceneGroup:insert(testGroup1)
 
 
 --------------------- test buttons ------------------------
